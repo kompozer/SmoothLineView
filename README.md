@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SmoothLineView.svg?style=flat)](http://cocoapods.org/pods/SmoothLineView)
 [![Platform](https://img.shields.io/cocoapods/p/SmoothLineView.svg?style=flat)](http://cocoapods.org/pods/SmoothLineView)
 
+Heavy based on [levinunnink](https://github.com/levinunnink) [Smooth-Line-View](https://github.com/levinunnink/Smooth-Line-View) which offers smooth & fast line drawing for iOS. This version offers additinally CocoaPods and undo support.
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -22,7 +24,7 @@ pod "SmoothLineView"
 
 ## Author
 
-Andreas Kompanez, [@kompozer](https://twitter.com/kompozer)
+Levi Nunnink [levinunnink](https://github.com/levinunnink), Andreas Kompanez [@kompozer](https://twitter.com/kompozer)
 
 ## License
 
