@@ -1,5 +1,5 @@
 //
-//  DrawOperation.h
+//  ENDDrawOperation.h
 //  Smooth Line View
 //
 //  Created by Andreas Kompanez on 26.05.15.
@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DrawOperation : NSObject
+
+
+@interface ENDDrawOperation : NSObject
 
 @property (nonatomic, copy, readonly) NSArray *subpaths;
 @property (nonatomic, copy) UIColor *color;

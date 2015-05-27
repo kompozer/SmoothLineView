@@ -1,5 +1,5 @@
 //
-//  DrawSession.h
+//  ENDDrawSession.h
 //  Smooth Line View
 //
 //  Created by Andreas Kompanez on 26.05.15.
@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class DrawOperation;
+@class ENDDrawOperation;
 
-@interface DrawSession : NSObject
 
-@property (nonatomic, strong, readonly) DrawOperation *operation;
+
+@interface ENDDrawSession : NSObject
+
+@property (nonatomic, strong, readonly) ENDDrawOperation *operation;
 @property (nonatomic, copy, readonly) NSArray *operations;
 
 - (void)beginOperation;

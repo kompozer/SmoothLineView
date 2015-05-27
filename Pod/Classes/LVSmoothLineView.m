@@ -24,12 +24,12 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
-#import "SmoothLineView.h"
+#import "LVSmoothLineView.h"
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "DrawOperation.h"
-#import "DrawSession.h"
+#import "ENDDrawOperation.h"
+#import "ENDDrawSession.h"
 
 #define DEFAULT_COLOR               [UIColor redColor]
 #define DEFAULT_WIDTH               8.0f
@@ -45,20 +45,20 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 }
 
 
-@interface SmoothLineView ()
+@interface LVSmoothLineView ()
 
 @property (nonatomic, assign) CGPoint currentPoint;
 @property (nonatomic, assign) CGPoint previousPoint;
 @property (nonatomic, assign) CGPoint previousPreviousPoint;
 
 @property (nonatomic, strong) NSMutableArray *drawOperations;
-@property (nonatomic, strong) DrawOperation *operation;
-@property (nonatomic, strong) DrawSession *session;
+@property (nonatomic, strong) ENDDrawOperation *operation;
+@property (nonatomic, strong) ENDDrawSession *session;
 @property (nonatomic) BOOL ignoreTouch;
 
 @end
 
-@implementation SmoothLineView {
+@implementation LVSmoothLineView {
 @private
     CGMutablePathRef _path;
 }
@@ -92,7 +92,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 
 - (void)setUpSmoothLineView
 {
-    self.session = [DrawSession new];
+    self.session = [ENDDrawSession new];
     
     _path = CGPathCreateMutable();
     _lineWidth = DEFAULT_WIDTH;
@@ -124,7 +124,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
         [operations addObject:self.session.operation];
     }
     
-    for (DrawOperation *operation in operations) {
+    for (ENDDrawOperation *operation in operations) {
         CGMutablePathRef newPath = CGPathCreateMutable();
         
         for (UIBezierPath *path in operation.subpaths) {
@@ -226,18 +226,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     }
         
     [self.session removeLastOperation];
-//    NSArray *operations = self.session.operations;
-//    
-//    CGMutablePathRef newPath = CGPathCreateMutable();
-//    for (DrawOperation *operation in operations) {
-//        for (UIBezierPath *path in operation.subpaths) {
-//            CGPathRef subpath = (CGPathRef)path.CGPath;
-//            CGPathAddPath(newPath, NULL, subpath);
-//        }
-//    }
-//    
-//    CFRelease(_path);
-//    _path = newPath;
     [self setNeedsDisplay];
 }
 
@@ -248,6 +236,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGMutablePathRef oldPath = _path;
     CFRelease(oldPath);
     _path = CGPathCreateMutable();
+    
     [self setNeedsDisplay];
 }
 

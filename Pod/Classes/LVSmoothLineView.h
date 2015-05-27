@@ -26,10 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class DrawSession;
 
 
-@interface SmoothLineView : UIView
+@interface LVSmoothLineView : UIView
 
 @property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, assign) CGFloat lineWidth;

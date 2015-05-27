@@ -1,20 +1,22 @@
 //
-//  DrawOperation.m
+//  ENDDrawOperation.m
 //  Smooth Line View
 //
 //  Created by Andreas Kompanez on 26.05.15.
 //  Copyright (c) 2015 culturezoo. All rights reserved.
 //
 
-#import "DrawOperation.h"
+#import "ENDDrawOperation.h"
 
-@interface DrawOperation ()
+
+
+@interface ENDDrawOperation ()
 
 @property (nonatomic, strong) NSMutableArray *internalSubpaths;
 
 @end
 
-@implementation DrawOperation
+@implementation ENDDrawOperation
 
 - (instancetype)init
 {

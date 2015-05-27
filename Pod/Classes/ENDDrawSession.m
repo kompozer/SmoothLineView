@@ -1,26 +1,26 @@
 //
-//  DrawSession.m
+//  ENDDrawSession.m
 //  Smooth Line View
 //
 //  Created by Andreas Kompanez on 26.05.15.
 //  Copyright (c) 2015 culturezoo. All rights reserved.
 //
 
-#import "DrawSession.h"
+#import "ENDDrawSession.h"
 
-#import "DrawOperation.h"
+#import "ENDDrawOperation.h"
 
 
-@interface DrawSession ()
+@interface ENDDrawSession ()
 
-@property (nonatomic, strong, readwrite) DrawOperation *operation;
+@property (nonatomic, strong, readwrite) ENDDrawOperation *operation;
 
 @property (nonatomic, strong) NSMutableArray *internalOperations;
 
 
 @end
 
-@implementation DrawSession
+@implementation ENDDrawSession
 
 - (instancetype)init
 {
@@ -38,7 +38,7 @@
 
 - (void)beginOperation
 {
-    self.operation = [DrawOperation new];
+    self.operation = [ENDDrawOperation new];
 }
 
 - (void)endOperation
