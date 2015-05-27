@@ -22,7 +22,7 @@ pod "SmoothLineView"
 
 ## Author
 
-Andreas Kompanez, andreas.kompanez@wearezeta.com
+Andreas Kompanez, [@kompozer](https://twitter.com/kompozer)
 
 ## License
 
