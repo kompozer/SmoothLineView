@@ -219,6 +219,11 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     [self.session endOperation];
 }
 
+- (BOOL)canUndo
+{
+    return ! [self.session isEmpty];
+}
+
 - (void)undo
 {
     if ([self.session isEmpty]) {
