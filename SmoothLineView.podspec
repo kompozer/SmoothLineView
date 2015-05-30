@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SmoothLineView"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Smooth line drawing for iOS"
   s.description      = <<-DESC
 Smooth & fast line drawing from touch inputs for UIViews using Quartz
