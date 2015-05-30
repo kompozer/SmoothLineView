@@ -58,10 +58,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 
 @end
 
-@implementation LVSmoothLineView {
-@private
-    CGMutablePathRef _path;
-}
+@implementation LVSmoothLineView
 
 #pragma mark UIView lifecycle methods
 
@@ -94,7 +91,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 {
     self.session = [ENDDrawSession new];
     
-    _path = CGPathCreateMutable();
     _lineWidth = DEFAULT_WIDTH;
     _lineColor = DEFAULT_COLOR;
     
@@ -117,7 +113,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGContextSetShouldAntialias(context, YES);
     CGContextSetAllowsAntialiasing(context, YES);
     CGContextSetFlatness(context, 0.1f);
-
     
     NSMutableArray *operations = [self.session.operations mutableCopy];
     if (self.session.operation) {
@@ -139,11 +134,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
         
         CFRelease(newPath);
     }
-}
-
-- (void)dealloc
-{
-    CGPathRelease(_path);
 }
 
 #pragma mark Touch event handlers
@@ -199,12 +189,8 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGRect bounds = CGPathGetBoundingBox(subpath);
     CGRect drawBox = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth);
     
-    // append the quad curve to the accumulated path so far.
-    CGPathAddPath(_path, NULL, subpath);
-    
     [self.session.operation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
 
-    
     CGPathRelease(subpath);
     
     [self setNeedsDisplayInRect:drawBox];
@@ -238,10 +224,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 
 - (void)clear
 {
-    CGMutablePathRef oldPath = _path;
-    CFRelease(oldPath);
-    _path = CGPathCreateMutable();
-    
+    [self.session removeAllOperations];
     [self setNeedsDisplay];
 }
 

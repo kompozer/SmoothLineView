@@ -63,5 +63,10 @@
     [self.internalOperations removeLastObject];
 }
 
+- (void)removeAllOperations
+{
+    [self.internalOperations removeAllObjects];
+}
+
 
 @end

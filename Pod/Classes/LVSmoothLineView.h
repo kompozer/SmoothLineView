@@ -34,8 +34,10 @@
 @property (nonatomic, assign) CGFloat lineWidth;
 
 - (void)clear;
+
 - (BOOL)canUndo;
 - (void)undo;
+
 - (UIImage *)snapshotImage;
 
 @end

@@ -24,5 +24,6 @@
 - (BOOL)isEmpty;
 
 - (void)removeLastOperation;
+- (void)removeAllOperations;
 
 @end
