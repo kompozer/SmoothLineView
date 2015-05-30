@@ -13,7 +13,7 @@
 
 @interface ENDDrawSession ()
 
-@property (nonatomic, strong, readwrite) ENDDrawOperation *operation;
+@property (nonatomic, strong, readwrite) id <ENDDrawOperation> operation;
 
 @property (nonatomic, strong) NSMutableArray *internalOperations;
 
@@ -36,9 +36,13 @@
     return [NSArray arrayWithArray:self.internalOperations];
 }
 
-- (void)beginOperation
+- (id <ENDDrawOperation>)beginOperation:(Class)operationClass
 {
-    self.operation = [ENDDrawOperation new];
+    if (! [operationClass conformsToProtocol:@protocol(ENDDrawOperation)]) {
+        return nil;
+    }
+    self.operation = [operationClass new];
+    return self.operation;
 }
 
 - (void)endOperation

@@ -10,13 +10,13 @@
 
 
 
-@interface ENDDrawOperation ()
+@interface ENDDrawPathOperation ()
 
 @property (nonatomic, strong) NSMutableArray *internalSubpaths;
 
 @end
 
-@implementation ENDDrawOperation
+@implementation ENDDrawPathOperation
 
 - (instancetype)init
 {

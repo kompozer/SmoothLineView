@@ -51,8 +51,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 @property (nonatomic, assign) CGPoint previousPoint;
 @property (nonatomic, assign) CGPoint previousPreviousPoint;
 
-@property (nonatomic, strong) NSMutableArray *drawOperations;
-@property (nonatomic, strong) ENDDrawOperation *operation;
+@property (nonatomic, strong) ENDDrawPathOperation *pathOperation;
 @property (nonatomic, strong) ENDDrawSession *session;
 @property (nonatomic) BOOL ignoreTouch;
 
@@ -93,8 +92,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     
     _lineWidth = DEFAULT_WIDTH;
     _lineColor = DEFAULT_COLOR;
-    
-    self.drawOperations = [NSMutableArray array];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -119,20 +116,25 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
         [operations addObject:self.session.operation];
     }
     
-    for (ENDDrawOperation *operation in operations) {
-        CGMutablePathRef newPath = CGPathCreateMutable();
-        
-        for (UIBezierPath *path in operation.subpaths) {
-            CGPathRef subpath = (CGPathRef)path.CGPath;
-            CGPathAddPath(newPath, NULL, subpath);
+    for (id <ENDDrawOperation> operation in operations) {
+        if ([operation isKindOfClass:[ENDDrawPathOperation class]]) {
+            
+            ENDDrawPathOperation *pathOperation = operation;
+            
+            CGMutablePathRef newPath = CGPathCreateMutable();
+            
+            for (UIBezierPath *path in pathOperation.subpaths) {
+                CGPathRef subpath = (CGPathRef)path.CGPath;
+                CGPathAddPath(newPath, NULL, subpath);
+            }
+            
+            CGContextAddPath(context, newPath);
+            CGContextSetStrokeColorWithColor(context, pathOperation.color.CGColor);
+            
+            CGContextStrokePath(context);
+            
+            CFRelease(newPath);
         }
-        
-        CGContextAddPath(context, newPath);
-        CGContextSetStrokeColorWithColor(context, operation.color.CGColor);
-        
-        CGContextStrokePath(context);
-        
-        CFRelease(newPath);
     }
 }
 
@@ -142,8 +144,8 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 {
     UITouch *touch = [touches anyObject];
     
-    [self.session beginOperation];
-    self.session.operation.color = self.lineColor;
+    self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class]];
+    self.pathOperation.color = self.lineColor;
     
     // initializes our point records to current location
     self.previousPoint = [touch previousLocationInView:self];
@@ -189,7 +191,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGRect bounds = CGPathGetBoundingBox(subpath);
     CGRect drawBox = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth);
     
-    [self.session.operation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
+    [self.pathOperation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
 
     CGPathRelease(subpath);
     
@@ -205,6 +207,8 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     [self.session endOperation];
 }
 
+#pragma mark interface
+
 - (BOOL)canUndo
 {
     return ! [self.session isEmpty];
@@ -219,8 +223,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     [self.session removeLastOperation];
     [self setNeedsDisplay];
 }
-
-#pragma mark interface
 
 - (void)clear
 {

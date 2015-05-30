@@ -10,7 +10,13 @@
 
 
 
-@interface ENDDrawOperation : NSObject
+@protocol ENDDrawOperation <NSObject>
+
+@end
+
+
+
+@interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
 
 @property (nonatomic, copy, readonly) NSArray *subpaths;
 @property (nonatomic, copy) UIColor *color;

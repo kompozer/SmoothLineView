@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class ENDDrawOperation;
+#import "ENDDrawOperation.h"
 
 
 
 @interface ENDDrawSession : NSObject
 
-@property (nonatomic, strong, readonly) ENDDrawOperation *operation;
+/// Current running operation
+@property (nonatomic, strong, readonly) id <ENDDrawOperation> operation;
 @property (nonatomic, copy, readonly) NSArray *operations;
 
-- (void)beginOperation;
+- (id <ENDDrawOperation>)beginOperation:(Class)operationClass;
 - (void)endOperation;
 
 /// Has operaions YES/NO
