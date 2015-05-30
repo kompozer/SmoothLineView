@@ -24,3 +24,12 @@
 - (void)addSubpath:(UIBezierPath *)subpath;
 
 @end
+
+
+
+@interface ENDDrawFillWithColorOperation : NSObject <ENDDrawOperation>
+
+/// The fill color
+@property (nonatomic, strong) UIColor *color;
+
+@end

@@ -40,3 +40,9 @@
 }
 
 @end
+
+
+
+@implementation ENDDrawFillWithColorOperation
+
+@end

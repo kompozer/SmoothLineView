@@ -35,6 +35,8 @@
 
 - (void)clear;
 
+- (void)fillWithColor:(UIColor *)color;
+
 - (BOOL)canUndo;
 - (void)undo;
 

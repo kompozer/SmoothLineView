@@ -111,6 +111,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGContextSetAllowsAntialiasing(context, YES);
     CGContextSetFlatness(context, 0.1f);
     
+    // Append the current running operation, so we can draw it
     NSMutableArray *operations = [self.session.operations mutableCopy];
     if (self.session.operation) {
         [operations addObject:self.session.operation];
@@ -134,6 +135,14 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
             CGContextStrokePath(context);
             
             CFRelease(newPath);
+        }
+        else if ([operation isKindOfClass:[ENDDrawFillWithColorOperation class]]) {
+            ENDDrawFillWithColorOperation *fillOperation = operation;
+            
+            if (fillOperation.color) {
+                [fillOperation.color set];
+                UIRectFill(rect);
+            }
         }
     }
 }
@@ -227,6 +236,18 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 - (void)clear
 {
     [self.session removeAllOperations];
+    [self setNeedsDisplay];
+}
+
+- (void)fillWithColor:(UIColor *)color
+{
+    if (! color) {
+        return;
+    }
+    ENDDrawFillWithColorOperation *fillOperation = [self.session beginOperation:[ENDDrawFillWithColorOperation class]];
+    fillOperation.color = color;
+    [self.session endOperation];
+    
     [self setNeedsDisplay];
 }
 
