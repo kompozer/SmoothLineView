@@ -33,7 +33,7 @@
 @property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, assign) CGFloat lineWidth;
 
-/// Fills the canvas with the given @c color. This operation can be undone wiht the @c undo method
+/// Fills the canvas with the given @c color. This operation can be undone with the @c undo method
 - (void)fillWithColor:(UIColor *)color;
 
 - (void)clear;
