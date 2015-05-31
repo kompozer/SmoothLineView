@@ -32,16 +32,16 @@
 #import "ENDDrawSession.h"
 #import "ENDDrawGestureRecognizer.h"
 
-#define DEFAULT_COLOR               [UIColor redColor]
-#define DEFAULT_WIDTH               8.0f
-#define DEFAULT_BACKGROUND_COLOR    [UIColor whiteColor]
 
-static const CGFloat kPointMinDistance = 5.0f;
-static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDistance;
+static UIColor *LVDefaultLineColor = nil;
+static UIColor *LVDefaultBackgroundColor = nil;
+static const CGFloat LVDefaultLineWidth = 8.0;
+static const CGFloat LVPointMinDistance = 5.0f;
+static const CGFloat LVPointMinDistanceSquared = LVPointMinDistance * LVPointMinDistance;
 
 #pragma mark private Helper function
 
-static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
+static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
 }
 
@@ -58,6 +58,12 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 @end
 
 @implementation LVSmoothLineView
+
++ (void)initialize
+{
+    LVDefaultLineColor = [UIColor redColor];
+    LVDefaultBackgroundColor = [UIColor whiteColor];
+}
 
 #pragma mark UIView lifecycle methods
 
@@ -78,7 +84,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     self = [super initWithFrame:frame];
     
     if (self) {
-        self.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+        self.backgroundColor = LVDefaultBackgroundColor;
         
         [self setUpSmoothLineView];
     }
@@ -90,8 +96,8 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 {
     self.session = [ENDDrawSession new];
     
-    _lineWidth = DEFAULT_WIDTH;
-    _lineColor = DEFAULT_COLOR;
+    self.lineWidth = LVDefaultLineWidth;
+    self.lineColor = LVDefaultLineColor;
     
     UIGestureRecognizer *recognizer = [[ENDDrawGestureRecognizer alloc] initWithTarget:self action:@selector(drawGestureRecognized:)];
     [self addGestureRecognizer:recognizer];
@@ -190,7 +196,7 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGFloat dx = point.x - self.currentPoint.x;
     CGFloat dy = point.y - self.currentPoint.y;
     
-    if ((dx * dx + dy * dy) < kPointMinDistanceSquared) {
+    if ((dx * dx + dy * dy) < LVPointMinDistanceSquared) {
         // ... then ignore this movement
         return;
     }
@@ -200,8 +206,8 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     self.previousPoint = [touch previousLocationInView:self];
     self.currentPoint = [touch locationInView:self];
     
-    CGPoint mid1 = MiddlePoint(self.previousPoint, self.previousPreviousPoint);
-    CGPoint mid2 = MiddlePoint(self.currentPoint, self.previousPoint);
+    CGPoint mid1 = LVMiddlePoint(self.previousPoint, self.previousPreviousPoint);
+    CGPoint mid2 = LVMiddlePoint(self.currentPoint, self.previousPoint);
     
     // to represent the finger movement, create a new path segment,
     // a quadratic bezier path from mid1 to mid2, using previous as a control point
