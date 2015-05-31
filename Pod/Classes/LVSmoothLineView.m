@@ -30,6 +30,7 @@
 
 #import "ENDDrawOperation.h"
 #import "ENDDrawSession.h"
+#import "ENDDrawGestureRecognizer.h"
 
 #define DEFAULT_COLOR               [UIColor redColor]
 #define DEFAULT_WIDTH               8.0f
@@ -53,7 +54,6 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
 
 @property (nonatomic, strong) ENDDrawPathOperation *pathOperation;
 @property (nonatomic, strong) ENDDrawSession *session;
-@property (nonatomic) BOOL ignoreTouch;
 
 @end
 
@@ -92,6 +92,9 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     
     _lineWidth = DEFAULT_WIDTH;
     _lineColor = DEFAULT_COLOR;
+    
+    UIGestureRecognizer *recognizer = [[ENDDrawGestureRecognizer alloc] initWithTarget:self action:@selector(drawGestureRecognized:)];
+    [self addGestureRecognizer:recognizer];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -147,9 +150,24 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     }
 }
 
-#pragma mark Touch event handlers
+#pragma mark Touch handling
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)drawGestureRecognized:(ENDDrawGestureRecognizer *)recognizer
+{
+    NSSet *touches = recognizer.touches;
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        [self drawOperationBegan:touches];
+    }
+    else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        [self drawOperationMoved:touches];
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self drawOperationEnded:touches];
+    }
+}
+
+- (void)drawOperationBegan:(NSSet *)touches
 {
     UITouch *touch = [touches anyObject];
     
@@ -160,12 +178,9 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     self.previousPoint = [touch previousLocationInView:self];
     self.previousPreviousPoint = [touch previousLocationInView:self];
     self.currentPoint = [touch locationInView:self];
-    
-    // call touchesMoved:withEvent:, to possibly draw on zero movement
-    [self touchesMoved:touches withEvent:event];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)drawOperationMoved:(NSSet *)touches
 {
     UITouch *touch = [touches anyObject];
     
@@ -201,18 +216,14 @@ static CGPoint MiddlePoint(CGPoint p1, CGPoint p2) {
     CGRect drawBox = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth);
     
     [self.pathOperation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
-
+    
     CGPathRelease(subpath);
     
     [self setNeedsDisplayInRect:drawBox];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)drawOperationEnded:(NSSet *)touches
 {
-    if (self.ignoreTouch == YES) {
-        return;
-    }
-
     [self.session endOperation];
 }
 
