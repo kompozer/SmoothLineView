@@ -36,7 +36,7 @@
 static UIColor *LVDefaultLineColor = nil;
 static UIColor *LVDefaultBackgroundColor = nil;
 static const CGFloat LVDefaultLineWidth = 8.0;
-static const CGFloat LVPointMinDistance = 5.0f;
+static const CGFloat LVPointMinDistance = 4.0f;
 static const CGFloat LVPointMinDistanceSquared = LVPointMinDistance * LVPointMinDistance;
 
 #pragma mark private Helper function
@@ -103,6 +103,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     [self addGestureRecognizer:recognizer];
     
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
+    longPressRecognizer.minimumPressDuration = 0.6;
     [self addGestureRecognizer:longPressRecognizer];
     
     [recognizer requireGestureRecognizerToFail:longPressRecognizer];
@@ -189,6 +190,8 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     self.previousPoint = [touch previousLocationInView:self];
     self.previousPreviousPoint = [touch previousLocationInView:self];
     self.currentPoint = [touch locationInView:self];
+    
+    [self drawOperationMoved:touches];
 }
 
 - (void)drawOperationMoved:(NSSet *)touches
@@ -200,8 +203,9 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     // if the finger has moved less than the min dist ...
     CGFloat dx = point.x - self.currentPoint.x;
     CGFloat dy = point.y - self.currentPoint.y;
+    CGFloat distance = (dx * dx + dy * dy);
     
-    if ((dx * dx + dy * dy) < LVPointMinDistanceSquared) {
+    if ((distance > 0) && (distance < LVPointMinDistanceSquared)) {
         // ... then ignore this movement
         return;
     }
