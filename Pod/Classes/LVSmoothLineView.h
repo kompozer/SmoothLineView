@@ -26,10 +26,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LVSmoothLineViewDelegate;
+
 
 
 @interface LVSmoothLineView : UIView
 
+@property (nonatomic, weak) id <LVSmoothLineViewDelegate> delegate;
 @property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, assign) CGFloat lineWidth;
 
@@ -42,5 +45,13 @@
 - (void)undo;
 
 - (UIImage *)snapshotImage;
+
+@end
+
+
+
+@protocol LVSmoothLineViewDelegate <NSObject>
+
+- (void)smoothLineViewLongPressed:(LVSmoothLineView *)view;
 
 @end
