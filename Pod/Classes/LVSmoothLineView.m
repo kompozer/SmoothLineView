@@ -101,6 +101,11 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     
     UIGestureRecognizer *recognizer = [[ENDDrawGestureRecognizer alloc] initWithTarget:self action:@selector(drawGestureRecognized:)];
     [self addGestureRecognizer:recognizer];
+    
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
+    [self addGestureRecognizer:longPressRecognizer];
+    
+    [recognizer requireGestureRecognizerToFail:longPressRecognizer];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -231,6 +236,13 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 - (void)drawOperationEnded:(NSSet *)touches
 {
     [self.session endOperation];
+}
+
+- (void)longPressRecognized:(UILongPressGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateRecognized && [self.delegate respondsToSelector:@selector(smoothLineViewLongPressed:)]) {
+        [self.delegate smoothLineViewLongPressed:self];
+    }
 }
 
 #pragma mark interface
