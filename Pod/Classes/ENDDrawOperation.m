@@ -12,7 +12,7 @@
 
 @interface ENDDrawPathOperation ()
 
-@property (nonatomic, strong) NSMutableArray *internalSubpaths;
+@property (nonatomic, strong) UIBezierPath *internalPath;
 
 @end
 
@@ -22,20 +22,20 @@
 {
     self = [super init];
     if (self) {
-        self.internalSubpaths = [NSMutableArray array];
+        self.internalPath = [UIBezierPath bezierPath];
     }
     return self;
 }
 
-- (NSArray *)subpaths
+- (UIBezierPath *)path
 {
-    return [NSArray arrayWithArray:self.internalSubpaths];
+    return [self.internalPath copy];
 }
 
 - (void)addSubpath:(UIBezierPath *)subpath
 {
     if (subpath) {
-        [self.internalSubpaths addObject:subpath];
+        [self.internalPath appendPath:subpath];
     }
 }
 

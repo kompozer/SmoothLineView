@@ -137,13 +137,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
             
             ENDDrawPathOperation *pathOperation = operation;
             
-            CGMutablePathRef newPath = CGPathCreateMutable();
-            
-            for (UIBezierPath *path in pathOperation.subpaths) {
-                CGPathRef subpath = (CGPathRef)path.CGPath;
-                CGPathAddPath(newPath, NULL, subpath);
-            }
-            
+            CGMutablePathRef newPath = CGPathCreateMutableCopy(pathOperation.path.CGPath);
             CGContextAddPath(context, newPath);
             CGContextSetStrokeColorWithColor(context, pathOperation.color.CGColor);
             

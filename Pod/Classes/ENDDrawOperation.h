@@ -18,7 +18,8 @@
 
 @interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
 
-@property (nonatomic, copy, readonly) NSArray *subpaths;
+/// Combined path
+@property (nonatomic, copy, readonly) UIBezierPath *path;
 @property (nonatomic, copy) UIColor *color;
 
 - (void)addSubpath:(UIBezierPath *)subpath;
