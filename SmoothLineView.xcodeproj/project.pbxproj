@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		F5155B3D1B30CA4300F1DA58 /* SmoothLineView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5155B311B30CA4300F1DA58 /* SmoothLineView.framework */; };
 		F5155B441B30CA4300F1DA58 /* SmoothLineViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B431B30CA4300F1DA58 /* SmoothLineViewTests.m */; };
-		F5155B561B30CA5900F1DA58 /* ENDDrawGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B4D1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.h */; };
-		F5155B571B30CA5900F1DA58 /* ENDDrawGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B4E1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.m */; };
-		F5155B581B30CA5900F1DA58 /* ENDDrawOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B4F1B30CA5900F1DA58 /* ENDDrawOperation.h */; };
-		F5155B591B30CA5900F1DA58 /* ENDDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B501B30CA5900F1DA58 /* ENDDrawOperation.m */; };
-		F5155B5A1B30CA5900F1DA58 /* ENDDrawSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B511B30CA5900F1DA58 /* ENDDrawSession.h */; };
-		F5155B5B1B30CA5900F1DA58 /* ENDDrawSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B521B30CA5900F1DA58 /* ENDDrawSession.m */; };
-		F5155B5C1B30CA5900F1DA58 /* LVSmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B531B30CA5900F1DA58 /* LVSmoothLineView.h */; };
-		F5155B5D1B30CA5900F1DA58 /* LVSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B541B30CA5900F1DA58 /* LVSmoothLineView.m */; };
-		F5155B5E1B30CA5900F1DA58 /* SmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B551B30CA5900F1DA58 /* SmoothLineView.h */; };
+		F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */; };
+		F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */; };
+		F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */; };
+		F5155B6F1B30D0FD00F1DA58 /* ENDDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */; };
+		F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */; };
+		F5155B711B30D0FD00F1DA58 /* ENDDrawSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */; };
+		F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */; };
+		F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */; };
+		F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */; };
+		F5155B761B30D11E00F1DA58 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5155B751B30D11E00F1DA58 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,19 +33,19 @@
 
 /* Begin PBXFileReference section */
 		F5155B311B30CA4300F1DA58 /* SmoothLineView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmoothLineView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5155B351B30CA4300F1DA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5155B3C1B30CA4300F1DA58 /* SmoothLineViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmoothLineViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5155B421B30CA4300F1DA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5155B431B30CA4300F1DA58 /* SmoothLineViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmoothLineViewTests.m; sourceTree = "<group>"; };
-		F5155B4D1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawGestureRecognizer.h; path = ../../Pod/Classes/ENDDrawGestureRecognizer.h; sourceTree = "<group>"; };
-		F5155B4E1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawGestureRecognizer.m; path = ../../Pod/Classes/ENDDrawGestureRecognizer.m; sourceTree = "<group>"; };
-		F5155B4F1B30CA5900F1DA58 /* ENDDrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawOperation.h; path = ../../Pod/Classes/ENDDrawOperation.h; sourceTree = "<group>"; };
-		F5155B501B30CA5900F1DA58 /* ENDDrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawOperation.m; path = ../../Pod/Classes/ENDDrawOperation.m; sourceTree = "<group>"; };
-		F5155B511B30CA5900F1DA58 /* ENDDrawSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawSession.h; path = ../../Pod/Classes/ENDDrawSession.h; sourceTree = "<group>"; };
-		F5155B521B30CA5900F1DA58 /* ENDDrawSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawSession.m; path = ../../Pod/Classes/ENDDrawSession.m; sourceTree = "<group>"; };
-		F5155B531B30CA5900F1DA58 /* LVSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVSmoothLineView.h; path = ../../Pod/Classes/LVSmoothLineView.h; sourceTree = "<group>"; };
-		F5155B541B30CA5900F1DA58 /* LVSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVSmoothLineView.m; path = ../../Pod/Classes/LVSmoothLineView.m; sourceTree = "<group>"; };
-		F5155B551B30CA5900F1DA58 /* SmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmoothLineView.h; path = ../../Pod/Classes/SmoothLineView.h; sourceTree = "<group>"; };
+		F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawGestureRecognizer.h; path = Pod/Classes/ENDDrawGestureRecognizer.h; sourceTree = SOURCE_ROOT; };
+		F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawGestureRecognizer.m; path = Pod/Classes/ENDDrawGestureRecognizer.m; sourceTree = SOURCE_ROOT; };
+		F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawOperation.h; path = Pod/Classes/ENDDrawOperation.h; sourceTree = SOURCE_ROOT; };
+		F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawOperation.m; path = Pod/Classes/ENDDrawOperation.m; sourceTree = SOURCE_ROOT; };
+		F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawSession.h; path = Pod/Classes/ENDDrawSession.h; sourceTree = SOURCE_ROOT; };
+		F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawSession.m; path = Pod/Classes/ENDDrawSession.m; sourceTree = SOURCE_ROOT; };
+		F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVSmoothLineView.h; path = Pod/Classes/LVSmoothLineView.h; sourceTree = SOURCE_ROOT; };
+		F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVSmoothLineView.m; path = Pod/Classes/LVSmoothLineView.m; sourceTree = SOURCE_ROOT; };
+		F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmoothLineView.h; path = Pod/Classes/SmoothLineView.h; sourceTree = SOURCE_ROOT; };
+		F5155B751B30D11E00F1DA58 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,15 +88,15 @@
 		F5155B331B30CA4300F1DA58 /* SmoothLineView */ = {
 			isa = PBXGroup;
 			children = (
-				F5155B4D1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.h */,
-				F5155B4E1B30CA5900F1DA58 /* ENDDrawGestureRecognizer.m */,
-				F5155B4F1B30CA5900F1DA58 /* ENDDrawOperation.h */,
-				F5155B501B30CA5900F1DA58 /* ENDDrawOperation.m */,
-				F5155B511B30CA5900F1DA58 /* ENDDrawSession.h */,
-				F5155B521B30CA5900F1DA58 /* ENDDrawSession.m */,
-				F5155B531B30CA5900F1DA58 /* LVSmoothLineView.h */,
-				F5155B541B30CA5900F1DA58 /* LVSmoothLineView.m */,
-				F5155B551B30CA5900F1DA58 /* SmoothLineView.h */,
+				F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */,
+				F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */,
+				F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */,
+				F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */,
+				F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */,
+				F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */,
+				F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */,
+				F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */,
+				F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */,
 				F5155B341B30CA4300F1DA58 /* Supporting Files */,
 			);
 			path = SmoothLineView;
@@ -104,7 +105,7 @@
 		F5155B341B30CA4300F1DA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5155B351B30CA4300F1DA58 /* Info.plist */,
+				F5155B751B30D11E00F1DA58 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -133,11 +134,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5155B5E1B30CA5900F1DA58 /* SmoothLineView.h in Headers */,
-				F5155B5A1B30CA5900F1DA58 /* ENDDrawSession.h in Headers */,
-				F5155B581B30CA5900F1DA58 /* ENDDrawOperation.h in Headers */,
-				F5155B561B30CA5900F1DA58 /* ENDDrawGestureRecognizer.h in Headers */,
-				F5155B5C1B30CA5900F1DA58 /* LVSmoothLineView.h in Headers */,
+				F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */,
+				F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */,
+				F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */,
+				F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */,
+				F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5155B761B30D11E00F1DA58 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,10 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5155B5D1B30CA5900F1DA58 /* LVSmoothLineView.m in Sources */,
-				F5155B571B30CA5900F1DA58 /* ENDDrawGestureRecognizer.m in Sources */,
-				F5155B5B1B30CA5900F1DA58 /* ENDDrawSession.m in Sources */,
-				F5155B591B30CA5900F1DA58 /* ENDDrawOperation.m in Sources */,
+				F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */,
+				F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */,
+				F5155B711B30D0FD00F1DA58 /* ENDDrawSession.m in Sources */,
+				F5155B6F1B30D0FD00F1DA58 /* ENDDrawOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +360,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SmoothLineView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,7 +375,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SmoothLineView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +432,7 @@
 				F5155B491B30CA4300F1DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5155B4A1B30CA4300F1DA58 /* Build configuration list for PBXNativeTarget "SmoothLineViewTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +441,7 @@
 				F5155B4C1B30CA4300F1DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
