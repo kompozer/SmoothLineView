@@ -11,11 +11,13 @@
 #import "ENDDrawOperation.h"
 
 
+
 @interface ENDDrawSession ()
 
 @property (nonatomic, strong, readwrite) id <ENDDrawOperation> operation;
 
 @property (nonatomic, strong) NSMutableArray *internalOperations;
+@property (nonatomic, strong) NSMutableArray *redoOperations;
 
 
 @end
@@ -27,6 +29,7 @@
     self = [super init];
     if (self) {
         self.internalOperations = [NSMutableArray new];
+        self.redoOperations = [NSMutableArray new];
     }
     return self;
 }
@@ -53,9 +56,9 @@
     }
 }
 
-- (BOOL)isEmpty
+- (BOOL)canRemoveLastOperation
 {
-    return (self.internalOperations.count == 0);
+    return (self.internalOperations.count > 0);
 }
 
 - (void)removeLastOperation
@@ -63,14 +66,30 @@
     if (self.internalOperations.count == 0) {
         return;
     }
-    
-    [self.internalOperations removeLastObject];
+    id <ENDDrawOperation> operation = [self.internalOperations lastObject];
+    [self.internalOperations removeObject:operation];
+    [self.redoOperations addObject:operation];
+}
+
+- (BOOL)canRedoPreviousOperation
+{
+    return (self.redoOperations.count > 0);
+}
+
+- (void)redoPreviousOperation
+{
+    if (self.redoOperations.count == 0) {
+        return;
+    }
+    id <ENDDrawOperation> operation = [self.redoOperations firstObject];
+    [self.internalOperations addObject:operation];
+    [self.redoOperations removeObject:operation];
 }
 
 - (void)removeAllOperations
 {
     [self.internalOperations removeAllObjects];
+    [self.redoOperations removeAllObjects];
 }
-
 
 @end

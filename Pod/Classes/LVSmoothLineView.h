@@ -44,6 +44,9 @@
 - (BOOL)canUndo;
 - (void)undo;
 
+- (BOOL)canRedo;
+- (void)redo;
+
 - (UIImage *)snapshotImage;
 
 @end

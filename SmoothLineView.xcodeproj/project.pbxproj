@@ -13,12 +13,11 @@
 		F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */; };
 		F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B6F1B30D0FD00F1DA58 /* ENDDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */; };
-		F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */; };
 		F5155B711B30D0FD00F1DA58 /* ENDDrawSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */; };
 		F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */; };
 		F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F5155B761B30D11E00F1DA58 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5155B751B30D11E00F1DA58 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,10 +134,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */,
-				F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */,
 				F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */,
 				F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */,
 				F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */,
+				F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5155B761B30D11E00F1DA58 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

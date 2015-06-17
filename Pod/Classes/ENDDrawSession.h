@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ENDDrawOperation.h"
+@protocol ENDDrawOperation;
 
 
 
@@ -21,10 +21,12 @@
 - (id <ENDDrawOperation>)beginOperation:(Class)operationClass;
 - (void)endOperation;
 
-/// Has operaions YES/NO
-- (BOOL)isEmpty;
-
+- (BOOL)canRemoveLastOperation;
 - (void)removeLastOperation;
+
+- (BOOL)canRedoPreviousOperation;
+- (void)redoPreviousOperation;
+
 - (void)removeAllOperations;
 
 @end

@@ -247,16 +247,31 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 
 - (BOOL)canUndo
 {
-    return ! [self.session isEmpty];
+    return [self.session canRemoveLastOperation];
 }
 
 - (void)undo
 {
-    if ([self.session isEmpty]) {
+    if ([self canUndo]) {
         return;
     }
         
     [self.session removeLastOperation];
+    [self setNeedsDisplay];
+}
+
+- (BOOL)canRedo
+{
+    return [self.session canRedoPreviousOperation];
+}
+
+- (void)redo
+{
+    if ([self canRedo]) {
+        return;
+    }
+    
+    [self.session redoPreviousOperation];
     [self setNeedsDisplay];
 }
 
