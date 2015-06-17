@@ -8,6 +8,4 @@ end
 
 target 'Tests', :exclusive => true do
   pod "SmoothLineView", :path => "../"
-
-  pod 'FBSnapshotTestCase'
 end
