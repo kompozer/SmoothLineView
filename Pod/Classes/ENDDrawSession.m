@@ -53,6 +53,8 @@
     if (self.operation) {
         [self.internalOperations addObject:self.operation];
         self.operation = nil;
+        
+        [self.redoOperations removeAllObjects];
     }
 }
 
@@ -71,17 +73,17 @@
     [self.redoOperations addObject:operation];
 }
 
-- (BOOL)canRedoPreviousOperation
+- (BOOL)canRedoLastOperation
 {
     return (self.redoOperations.count > 0);
 }
 
-- (void)redoPreviousOperation
+- (void)redoLastOperation
 {
     if (self.redoOperations.count == 0) {
         return;
     }
-    id <ENDDrawOperation> operation = [self.redoOperations firstObject];
+    id <ENDDrawOperation> operation = [self.redoOperations lastObject];
     [self.internalOperations addObject:operation];
     [self.redoOperations removeObject:operation];
 }

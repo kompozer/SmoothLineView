@@ -24,8 +24,8 @@
 - (BOOL)canRemoveLastOperation;
 - (void)removeLastOperation;
 
-- (BOOL)canRedoPreviousOperation;
-- (void)redoPreviousOperation;
+- (BOOL)canRedoLastOperation;
+- (void)redoLastOperation;
 
 - (void)removeAllOperations;
 
