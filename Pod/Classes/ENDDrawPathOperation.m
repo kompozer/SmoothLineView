@@ -40,7 +40,9 @@
     CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
     CGContextAddPath(context, newPath);
     CGContextSetStrokeColorWithColor(context, self.color.CGColor);
-    CGContextSetShadowWithColor(context, (CGSize){1, 1}, 0.6, [UIColor grayColor].CGColor);
+    if (self.shadow) {
+        CGContextSetShadowWithColor(context, self.shadow.offset, self.shadow.blur, self.shadow.color.CGColor);
+    }
     
     CGContextStrokePath(context);
     
