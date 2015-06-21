@@ -1,12 +1,12 @@
 //
-//  ENDDrawOperation.m
-//  Smooth Line View
+//  ENDDrawPathOperation.m
+//  Pods
 //
-//  Created by Andreas Kompanez on 26.05.15.
-//  Copyright (c) 2015 culturezoo. All rights reserved.
+//  Created by Andreas Kompanez on 21.06.15.
+//
 //
 
-#import "ENDDrawOperation.h"
+#import "ENDDrawPathOperation.h"
 
 
 
@@ -36,9 +36,11 @@
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineWidth(context, self.lineWidth);
     
+    
     CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
     CGContextAddPath(context, newPath);
     CGContextSetStrokeColorWithColor(context, self.color.CGColor);
+    CGContextSetShadowWithColor(context, (CGSize){1, 1}, 0.6, [UIColor grayColor].CGColor);
     
     CGContextStrokePath(context);
     
@@ -49,20 +51,6 @@
 {
     if (subpath) {
         [self.internalPath appendPath:subpath];
-    }
-}
-
-@end
-
-
-
-@implementation ENDDrawFillWithColorOperation
-
-- (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
-{
-    if (self.color) {
-        [self.color set];
-        UIRectFill(rect);
     }
 }
 

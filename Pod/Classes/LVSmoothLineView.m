@@ -31,6 +31,8 @@
 #import "ENDDrawOperation.h"
 #import "ENDDrawSession.h"
 #import "ENDDrawGestureRecognizer.h"
+#import "ENDDrawPathOperation.h"
+#import "ENDDrawFillWithColorOperation.h"
 
 
 static UIColor *LVDefaultLineColor = nil;
