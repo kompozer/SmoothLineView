@@ -274,6 +274,10 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     [self setNeedsDisplay];
 }
 
+@end
+
+@implementation LVSmoothLineView (Snapshot)
+
 - (UIImage *)snapshotImage
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
@@ -286,4 +290,5 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 }
 
 @end
+
 

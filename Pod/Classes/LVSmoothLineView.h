@@ -47,6 +47,12 @@
 - (BOOL)canRedo;
 - (void)redo;
 
+@end
+
+
+
+@interface LVSmoothLineView (Snapshot)
+
 - (UIImage *)snapshotImage;
 
 @end
