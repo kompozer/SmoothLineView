@@ -20,7 +20,16 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10a-U9-VhY">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="EOO-hs-KuT"/>
+                                    <barButtonItem title="Undo" id="EOO-hs-KuT">
+                                        <connections>
+                                            <action selector="undo:" destination="vXZ-lx-hvc" id="CuJ-an-K7d"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Redo" id="NlA-1c-FUS">
+                                        <connections>
+                                            <action selector="redo:" destination="vXZ-lx-hvc" id="Uvc-ih-E2r"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

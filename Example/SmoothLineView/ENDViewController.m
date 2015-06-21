@@ -49,5 +49,14 @@
     [self.smoothLineView fillWithColor:self.smoothLineView.lineColor];
 }
 
+- (IBAction)undo:(id)sender
+{
+    [self.smoothLineView undo];
+}
+
+- (IBAction)redo:(id)sender
+{
+    [self.smoothLineView redo];
+}
 
 @end
