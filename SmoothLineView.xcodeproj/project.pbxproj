@@ -12,12 +12,19 @@
 		F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */; };
 		F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F5155B6F1B30D0FD00F1DA58 /* ENDDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */; };
 		F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */; };
 		F5155B711B30D0FD00F1DA58 /* ENDDrawSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */; };
 		F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */; };
 		F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADA1B36DD4F002BC283 /* ENDBrush.h */; };
+		F531FAE31B36DD4F002BC283 /* ENDBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADB1B36DD4F002BC283 /* ENDBrush.m */; };
+		F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */; };
+		F531FAE51B36DD4F002BC283 /* ENDBrushShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADD1B36DD4F002BC283 /* ENDBrushShadow.m */; };
+		F531FAE61B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADE1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h */; };
+		F531FAE71B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADF1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m */; };
+		F531FAE81B36DD4F002BC283 /* ENDDrawPathOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FAE01B36DD4F002BC283 /* ENDDrawPathOperation.h */; };
+		F531FAE91B36DD4F002BC283 /* ENDDrawPathOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FAE11B36DD4F002BC283 /* ENDDrawPathOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +45,20 @@
 		F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawGestureRecognizer.h; path = Pod/Classes/ENDDrawGestureRecognizer.h; sourceTree = SOURCE_ROOT; };
 		F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawGestureRecognizer.m; path = Pod/Classes/ENDDrawGestureRecognizer.m; sourceTree = SOURCE_ROOT; };
 		F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawOperation.h; path = Pod/Classes/ENDDrawOperation.h; sourceTree = SOURCE_ROOT; };
-		F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawOperation.m; path = Pod/Classes/ENDDrawOperation.m; sourceTree = SOURCE_ROOT; };
 		F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawSession.h; path = Pod/Classes/ENDDrawSession.h; sourceTree = SOURCE_ROOT; };
 		F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawSession.m; path = Pod/Classes/ENDDrawSession.m; sourceTree = SOURCE_ROOT; };
 		F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVSmoothLineView.h; path = Pod/Classes/LVSmoothLineView.h; sourceTree = SOURCE_ROOT; };
 		F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVSmoothLineView.m; path = Pod/Classes/LVSmoothLineView.m; sourceTree = SOURCE_ROOT; };
 		F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmoothLineView.h; path = Pod/Classes/SmoothLineView.h; sourceTree = SOURCE_ROOT; };
 		F5155B751B30D11E00F1DA58 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		F531FADA1B36DD4F002BC283 /* ENDBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDBrush.h; path = Pod/Classes/ENDBrush.h; sourceTree = SOURCE_ROOT; };
+		F531FADB1B36DD4F002BC283 /* ENDBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDBrush.m; path = Pod/Classes/ENDBrush.m; sourceTree = SOURCE_ROOT; };
+		F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDBrushShadow.h; path = Pod/Classes/ENDBrushShadow.h; sourceTree = SOURCE_ROOT; };
+		F531FADD1B36DD4F002BC283 /* ENDBrushShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDBrushShadow.m; path = Pod/Classes/ENDBrushShadow.m; sourceTree = SOURCE_ROOT; };
+		F531FADE1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawFillWithColorOperation.h; path = Pod/Classes/ENDDrawFillWithColorOperation.h; sourceTree = SOURCE_ROOT; };
+		F531FADF1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawFillWithColorOperation.m; path = Pod/Classes/ENDDrawFillWithColorOperation.m; sourceTree = SOURCE_ROOT; };
+		F531FAE01B36DD4F002BC283 /* ENDDrawPathOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawPathOperation.h; path = Pod/Classes/ENDDrawPathOperation.h; sourceTree = SOURCE_ROOT; };
+		F531FAE11B36DD4F002BC283 /* ENDDrawPathOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawPathOperation.m; path = Pod/Classes/ENDDrawPathOperation.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +101,17 @@
 		F5155B331B30CA4300F1DA58 /* SmoothLineView */ = {
 			isa = PBXGroup;
 			children = (
+				F531FADA1B36DD4F002BC283 /* ENDBrush.h */,
+				F531FADB1B36DD4F002BC283 /* ENDBrush.m */,
+				F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */,
+				F531FADD1B36DD4F002BC283 /* ENDBrushShadow.m */,
+				F531FADE1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h */,
+				F531FADF1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m */,
+				F531FAE01B36DD4F002BC283 /* ENDDrawPathOperation.h */,
+				F531FAE11B36DD4F002BC283 /* ENDDrawPathOperation.m */,
 				F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */,
 				F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */,
 				F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */,
-				F5155B661B30D0FD00F1DA58 /* ENDDrawOperation.m */,
 				F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */,
 				F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */,
 				F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */,
@@ -134,10 +155,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */,
+				F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */,
 				F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */,
 				F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */,
 				F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */,
+				F531FAE61B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h in Headers */,
 				F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */,
+				F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */,
+				F531FAE81B36DD4F002BC283 /* ENDDrawPathOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F531FAE91B36DD4F002BC283 /* ENDDrawPathOperation.m in Sources */,
+				F531FAE31B36DD4F002BC283 /* ENDBrush.m in Sources */,
 				F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */,
+				F531FAE71B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m in Sources */,
 				F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */,
+				F531FAE51B36DD4F002BC283 /* ENDBrushShadow.m in Sources */,
 				F5155B711B30D0FD00F1DA58 /* ENDDrawSession.m in Sources */,
-				F5155B6F1B30D0FD00F1DA58 /* ENDDrawOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
