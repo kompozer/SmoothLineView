@@ -17,9 +17,9 @@
 		F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B731B30D0FD00F1DA58 /* LVSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B6A1B30D0FD00F1DA58 /* LVSmoothLineView.m */; };
 		F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B6B1B30D0FD00F1DA58 /* SmoothLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADA1B36DD4F002BC283 /* ENDBrush.h */; };
+		F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADA1B36DD4F002BC283 /* ENDBrush.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F531FAE31B36DD4F002BC283 /* ENDBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADB1B36DD4F002BC283 /* ENDBrush.m */; };
-		F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */; };
+		F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F531FAE51B36DD4F002BC283 /* ENDBrushShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADD1B36DD4F002BC283 /* ENDBrushShadow.m */; };
 		F531FAE61B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F531FADE1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h */; };
 		F531FAE71B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F531FADF1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m */; };
@@ -155,14 +155,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5155B741B30D0FD00F1DA58 /* SmoothLineView.h in Headers */,
-				F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */,
 				F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */,
+				F531FAE41B36DD4F002BC283 /* ENDBrushShadow.h in Headers */,
 				F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */,
+				F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */,
 				F5155B721B30D0FD00F1DA58 /* LVSmoothLineView.h in Headers */,
+				F531FAE81B36DD4F002BC283 /* ENDDrawPathOperation.h in Headers */,
 				F531FAE61B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h in Headers */,
 				F5155B701B30D0FD00F1DA58 /* ENDDrawSession.h in Headers */,
-				F531FAE21B36DD4F002BC283 /* ENDBrush.h in Headers */,
-				F531FAE81B36DD4F002BC283 /* ENDDrawPathOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
