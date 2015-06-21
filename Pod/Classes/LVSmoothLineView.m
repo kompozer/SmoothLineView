@@ -118,9 +118,6 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     // get the graphics context and draw the path
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetLineCap(context, kCGLineCapRound);
-    CGContextSetLineWidth(context, self.lineWidth);
-    
     CGContextSetBlendMode(context, kCGBlendModeNormal);
     CGContextSetShouldAntialias(context, YES);
     CGContextSetAllowsAntialiasing(context, YES);
@@ -133,26 +130,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     }
     
     for (id <ENDDrawOperation> operation in operations) {
-        if ([operation isKindOfClass:[ENDDrawPathOperation class]]) {
-            
-            ENDDrawPathOperation *pathOperation = operation;
-            
-            CGMutablePathRef newPath = CGPathCreateMutableCopy(pathOperation.path.CGPath);
-            CGContextAddPath(context, newPath);
-            CGContextSetStrokeColorWithColor(context, pathOperation.color.CGColor);
-            
-            CGContextStrokePath(context);
-            
-            CFRelease(newPath);
-        }
-        else if ([operation isKindOfClass:[ENDDrawFillWithColorOperation class]]) {
-            ENDDrawFillWithColorOperation *fillOperation = operation;
-            
-            if (fillOperation.color) {
-                [fillOperation.color set];
-                UIRectFill(rect);
-            }
-        }
+        [operation drawInContext:context inRect:rect];
     }
 }
 
@@ -179,6 +157,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     
     self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class]];
     self.pathOperation.color = self.lineColor;
+    self.pathOperation.lineWidth = self.lineWidth;
     
     // initializes our point records to current location
     self.previousPoint = [touch previousLocationInView:self];

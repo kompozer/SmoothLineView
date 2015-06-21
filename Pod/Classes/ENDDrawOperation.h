@@ -12,15 +12,16 @@
 
 @protocol ENDDrawOperation <NSObject>
 
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect;
+
 @end
 
 
 
 @interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
 
-/// Combined path
-@property (nonatomic, copy, readonly) UIBezierPath *path;
 @property (nonatomic, copy) UIColor *color;
+@property (nonatomic, assign) CGFloat lineWidth;
 
 - (void)addSubpath:(UIBezierPath *)subpath;
 

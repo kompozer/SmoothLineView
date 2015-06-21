@@ -23,13 +23,26 @@
     self = [super init];
     if (self) {
         self.internalPath = [UIBezierPath bezierPath];
+        self.lineWidth = 1.0;
     }
     return self;
 }
 
-- (UIBezierPath *)path
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
 {
-    return [self.internalPath copy];
+#pragma unused(rect)
+    UIBezierPath *path = [self.internalPath copy];
+    
+    CGContextSetLineCap(context, kCGLineCapRound);
+    CGContextSetLineWidth(context, self.lineWidth);
+    
+    CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
+    CGContextAddPath(context, newPath);
+    CGContextSetStrokeColorWithColor(context, self.color.CGColor);
+    
+    CGContextStrokePath(context);
+    
+    CFRelease(newPath);
 }
 
 - (void)addSubpath:(UIBezierPath *)subpath
@@ -44,5 +57,13 @@
 
 
 @implementation ENDDrawFillWithColorOperation
+
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
+{
+    if (self.color) {
+        [self.color set];
+        UIRectFill(rect);
+    }
+}
 
 @end
