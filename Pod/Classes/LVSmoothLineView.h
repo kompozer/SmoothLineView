@@ -34,7 +34,7 @@
 @interface LVSmoothLineView : UIView
 
 @property (nonatomic, weak) id <LVSmoothLineViewDelegate> delegate;
-@property (nonatomic, copy) ENDBrush *brush;
+@property (nonatomic, strong) ENDBrush *brush;
 
 /// Fills the canvas with the given @c color. This operation can be undone with the @c undo method
 - (void)fillWithColor:(UIColor *)color;

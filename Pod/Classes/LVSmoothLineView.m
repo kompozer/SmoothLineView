@@ -155,7 +155,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     UITouch *touch = [touches anyObject];
     
     self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class]];
-    self.pathOperation.brush = self.brush;
+    self.pathOperation.brush = [self.brush copy];
     
     // initializes our point records to current location
     self.previousPoint = [touch previousLocationInView:self];
