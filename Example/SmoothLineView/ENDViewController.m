@@ -15,6 +15,7 @@
 @interface ENDViewController () <LVSmoothLineViewDelegate>
 
 @property (nonatomic, strong) LVSmoothLineView *smoothLineView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -28,7 +29,8 @@
     self.smoothLineView = [[LVSmoothLineView alloc] initForAutoLayout];
     self.smoothLineView.delegate = self;
     [self.view addSubview:self.smoothLineView];
-    [self.smoothLineView autoPinEdgesToSuperviewEdgesWithInsets:(ALEdgeInsets){0, 0, 0, 0}];
+    
+    [self.smoothLineView autoPinEdgesToSuperviewEdgesWithInsets:(ALEdgeInsets){0, 0, self.toolbar.frame.size.height, 0}];
 }
 
 - (void)didReceiveMemoryWarning
