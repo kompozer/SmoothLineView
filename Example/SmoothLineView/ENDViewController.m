@@ -31,6 +31,8 @@
     [self.view addSubview:self.smoothLineView];
     
     [self.smoothLineView autoPinEdgesToSuperviewEdgesWithInsets:(ALEdgeInsets){0, 0, self.toolbar.frame.size.height, 0}];
+    
+    [self pickRedColor:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +59,21 @@
 - (IBAction)redo:(id)sender
 {
     [self.smoothLineView redo];
+}
+
+- (IBAction)pickRedColor:(id)sender
+{
+    self.smoothLineView.lineColor = [UIColor redColor];
+}
+
+- (IBAction)pickGreenColor:(id)sender
+{
+    self.smoothLineView.lineColor = [UIColor greenColor];
+}
+
+- (IBAction)pickBlueColor:(id)sender
+{
+    self.smoothLineView.lineColor = [UIColor blueColor];
 }
 
 @end
