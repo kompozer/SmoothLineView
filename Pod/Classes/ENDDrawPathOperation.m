@@ -8,6 +8,9 @@
 
 #import "ENDDrawPathOperation.h"
 
+#import "ENDBrush.h"
+#import "ENDBrushShadow.h"
+
 
 
 @interface ENDDrawPathOperation ()
@@ -23,7 +26,6 @@
     self = [super init];
     if (self) {
         self.internalPath = [UIBezierPath bezierPath];
-        self.lineWidth = 1.0;
     }
     return self;
 }
@@ -34,14 +36,14 @@
     UIBezierPath *path = [self.internalPath copy];
     
     CGContextSetLineCap(context, kCGLineCapRound);
-    CGContextSetLineWidth(context, self.lineWidth);
+    CGContextSetLineWidth(context, self.brush.lineWidth);
     
     
     CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
     CGContextAddPath(context, newPath);
-    CGContextSetStrokeColorWithColor(context, self.color.CGColor);
-    if (self.shadow) {
-        CGContextSetShadowWithColor(context, self.shadow.offset, self.shadow.blur, self.shadow.color.CGColor);
+    CGContextSetStrokeColorWithColor(context, self.brush.color.CGColor);
+    if (self.brush.shadow) {
+        CGContextSetShadowWithColor(context, self.brush.shadow.offset, self.brush.shadow.blur, self.brush.shadow.color.CGColor);
     }
     
     CGContextStrokePath(context);

@@ -11,27 +11,14 @@
 #import "ENDDrawOperation.h"
 
 @class ENDDrawPathShadow;
+@class ENDBrush;
 
 
 
 @interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
 
-@property (nonatomic, strong) UIColor *color;
-@property (nonatomic, assign) CGFloat lineWidth;
-/// Per default not set
-@property (nonatomic, strong) ENDDrawPathShadow *shadow;
+@property (nonatomic, copy) ENDBrush *brush;
 
 - (void)addSubpath:(UIBezierPath *)subpath;
-
-
-@end
-
-
-
-@interface ENDDrawPathShadow : NSObject
-
-@property (nonatomic, assign) CGSize offset;
-@property (nonatomic, assign) CGFloat blur;
-@property (nonatomic, strong) UIColor *color;
 
 @end
