@@ -15,23 +15,3 @@
 - (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect;
 
 @end
-
-
-
-@interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
-
-@property (nonatomic, copy) UIColor *color;
-@property (nonatomic, assign) CGFloat lineWidth;
-
-- (void)addSubpath:(UIBezierPath *)subpath;
-
-@end
-
-
-
-@interface ENDDrawFillWithColorOperation : NSObject <ENDDrawOperation>
-
-/// The fill color
-@property (nonatomic, strong) UIColor *color;
-
-@end

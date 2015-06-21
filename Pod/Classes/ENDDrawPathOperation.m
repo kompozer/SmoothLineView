@@ -1,12 +1,15 @@
 //
-//  ENDDrawOperation.m
-//  Smooth Line View
+//  ENDDrawPathOperation.m
+//  Pods
 //
-//  Created by Andreas Kompanez on 26.05.15.
-//  Copyright (c) 2015 culturezoo. All rights reserved.
+//  Created by Andreas Kompanez on 21.06.15.
+//
 //
 
-#import "ENDDrawOperation.h"
+#import "ENDDrawPathOperation.h"
+
+#import "ENDBrush.h"
+#import "ENDBrushShadow.h"
 
 
 
@@ -23,7 +26,6 @@
     self = [super init];
     if (self) {
         self.internalPath = [UIBezierPath bezierPath];
-        self.lineWidth = 1.0;
     }
     return self;
 }
@@ -34,11 +36,15 @@
     UIBezierPath *path = [self.internalPath copy];
     
     CGContextSetLineCap(context, kCGLineCapRound);
-    CGContextSetLineWidth(context, self.lineWidth);
+    CGContextSetLineWidth(context, self.brush.lineWidth);
+    
     
     CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
     CGContextAddPath(context, newPath);
-    CGContextSetStrokeColorWithColor(context, self.color.CGColor);
+    CGContextSetStrokeColorWithColor(context, self.brush.color.CGColor);
+    if (self.brush.shadow) {
+        CGContextSetShadowWithColor(context, self.brush.shadow.offset, self.brush.shadow.blur, self.brush.shadow.color.CGColor);
+    }
     
     CGContextStrokePath(context);
     
@@ -49,20 +55,6 @@
 {
     if (subpath) {
         [self.internalPath appendPath:subpath];
-    }
-}
-
-@end
-
-
-
-@implementation ENDDrawFillWithColorOperation
-
-- (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
-{
-    if (self.color) {
-        [self.color set];
-        UIRectFill(rect);
     }
 }
 

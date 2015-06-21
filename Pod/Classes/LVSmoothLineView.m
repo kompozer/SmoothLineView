@@ -31,11 +31,13 @@
 #import "ENDDrawOperation.h"
 #import "ENDDrawSession.h"
 #import "ENDDrawGestureRecognizer.h"
+#import "ENDDrawPathOperation.h"
+#import "ENDDrawFillWithColorOperation.h"
+#import "ENDBrush.h"
 
 
-static UIColor *LVDefaultLineColor = nil;
+
 static UIColor *LVDefaultBackgroundColor = nil;
-static const CGFloat LVDefaultLineWidth = 8.0;
 static const CGFloat LVPointMinDistance = 4.0f;
 static const CGFloat LVPointMinDistanceSquared = LVPointMinDistance * LVPointMinDistance;
 
@@ -61,7 +63,6 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 
 + (void)initialize
 {
-    LVDefaultLineColor = [UIColor redColor];
     LVDefaultBackgroundColor = [UIColor whiteColor];
 }
 
@@ -95,9 +96,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 - (void)setUpSmoothLineView
 {
     self.session = [ENDDrawSession new];
-    
-    self.lineWidth = LVDefaultLineWidth;
-    self.lineColor = LVDefaultLineColor;
+    self.brush = [ENDBrush new];
     
     UIGestureRecognizer *recognizer = [[ENDDrawGestureRecognizer alloc] initWithTarget:self action:@selector(drawGestureRecognized:)];
     [self addGestureRecognizer:recognizer];
@@ -156,8 +155,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     UITouch *touch = [touches anyObject];
     
     self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class]];
-    self.pathOperation.color = self.lineColor;
-    self.pathOperation.lineWidth = self.lineWidth;
+    self.pathOperation.brush = self.brush;
     
     // initializes our point records to current location
     self.previousPoint = [touch previousLocationInView:self];
@@ -201,7 +199,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     
     // compute the rect containing the new segment plus padding for drawn line
     CGRect bounds = CGPathGetBoundingBox(subpath);
-    CGRect drawBox = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth);
+    CGRect drawBox = CGRectInset(bounds, -2.0 * self.pathOperation.brush.lineWidth, -2.0 * self.pathOperation.brush.lineWidth);
     
     [self.pathOperation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
     
@@ -272,6 +270,10 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     [self setNeedsDisplay];
 }
 
+@end
+
+@implementation LVSmoothLineView (Snapshot)
+
 - (UIImage *)snapshotImage
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
@@ -284,4 +286,5 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 }
 
 @end
+
 

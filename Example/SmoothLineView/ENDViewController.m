@@ -12,6 +12,8 @@
 #import <PureLayout/PureLayout.h>
 #import <CoreMotion/CoreMotion.h>
 
+
+
 @interface ENDViewController () <LVSmoothLineViewDelegate>
 
 @property (nonatomic, strong) LVSmoothLineView *smoothLineView;
@@ -48,7 +50,8 @@
 
 - (void)smoothLineViewLongPressed:(LVSmoothLineView *)view
 {
-    [self.smoothLineView fillWithColor:self.smoothLineView.lineColor];
+    UIColor *color = self.smoothLineView.brush.color;
+    [self.smoothLineView fillWithColor:color];
 }
 
 - (IBAction)undo:(id)sender
@@ -63,17 +66,17 @@
 
 - (IBAction)pickRedColor:(id)sender
 {
-    self.smoothLineView.lineColor = [UIColor redColor];
+    self.smoothLineView.brush.color = [UIColor redColor];
 }
 
 - (IBAction)pickGreenColor:(id)sender
 {
-    self.smoothLineView.lineColor = [UIColor greenColor];
+    self.smoothLineView.brush.color = [UIColor greenColor];
 }
 
 - (IBAction)pickBlueColor:(id)sender
 {
-    self.smoothLineView.lineColor = [UIColor blueColor];
+    self.smoothLineView.brush.color = [UIColor blueColor];
 }
 
 @end

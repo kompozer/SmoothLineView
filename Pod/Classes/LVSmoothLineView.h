@@ -27,14 +27,14 @@
 #import <UIKit/UIKit.h>
 
 @protocol LVSmoothLineViewDelegate;
+@class ENDBrush;
 
 
 
 @interface LVSmoothLineView : UIView
 
 @property (nonatomic, weak) id <LVSmoothLineViewDelegate> delegate;
-@property (nonatomic, strong) UIColor *lineColor;
-@property (nonatomic, assign) CGFloat lineWidth;
+@property (nonatomic, copy) ENDBrush *brush;
 
 /// Fills the canvas with the given @c color. This operation can be undone with the @c undo method
 - (void)fillWithColor:(UIColor *)color;
@@ -46,6 +46,12 @@
 
 - (BOOL)canRedo;
 - (void)redo;
+
+@end
+
+
+
+@interface LVSmoothLineView (Snapshot)
 
 - (UIImage *)snapshotImage;
 
