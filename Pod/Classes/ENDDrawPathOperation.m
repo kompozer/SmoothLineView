@@ -30,25 +30,26 @@
     return self;
 }
 
+- (UIBezierPath *)path
+{
+    return [self.internalPath copy];
+}
+
 - (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
 {
 #pragma unused(rect)
-    UIBezierPath *path = [self.internalPath copy];
+    UIBezierPath *path = self.path;
     
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineWidth(context, self.brush.lineWidth);
     
-    
-    CGMutablePathRef newPath = CGPathCreateMutableCopy(path.CGPath);
-    CGContextAddPath(context, newPath);
+    CGContextAddPath(context, path.CGPath);
     CGContextSetStrokeColorWithColor(context, self.brush.color.CGColor);
     if (self.brush.shadow) {
         CGContextSetShadowWithColor(context, self.brush.shadow.offset, self.brush.shadow.blur, self.brush.shadow.color.CGColor);
     }
     
     CGContextStrokePath(context);
-    
-    CFRelease(newPath);
 }
 
 - (void)addSubpath:(UIBezierPath *)subpath

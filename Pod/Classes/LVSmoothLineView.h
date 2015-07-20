@@ -54,6 +54,7 @@
 @interface LVSmoothLineView (Snapshot)
 
 - (UIImage *)snapshotImage;
+- (CGRect)drawingBox;
 
 @end
 

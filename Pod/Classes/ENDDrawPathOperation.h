@@ -18,6 +18,7 @@
 @interface ENDDrawPathOperation : NSObject <ENDDrawOperation>
 
 @property (nonatomic, copy) ENDBrush *brush;
+@property (nonatomic, copy, readonly) UIBezierPath *path;
 
 - (void)addSubpath:(UIBezierPath *)subpath;
 

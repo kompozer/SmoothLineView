@@ -198,8 +198,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
                               mid2.x, mid2.y);
     
     // compute the rect containing the new segment plus padding for drawn line
-    CGRect bounds = CGPathGetBoundingBox(subpath);
-    CGRect drawBox = CGRectInset(bounds, -2.0 * self.pathOperation.brush.lineWidth, -2.0 * self.pathOperation.brush.lineWidth);
+    CGRect drawBox = [self pathDrawBox:subpath];
     
     [self.pathOperation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
     
@@ -270,6 +269,18 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     [self setNeedsDisplay];
 }
 
+- (CGRect)pathDrawBox:(CGPathRef)path
+{
+    if (! path) {
+        return CGRectNull;
+    }
+    
+    CGRect bounds = CGPathGetBoundingBox(path);
+    CGRect pathDrawBox = CGRectInset(bounds, -2.0 * self.pathOperation.brush.lineWidth, -2.0 * self.pathOperation.brush.lineWidth);
+    
+    return pathDrawBox;
+}
+
 @end
 
 @implementation LVSmoothLineView (Snapshot)
@@ -285,6 +296,17 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     return image;
 }
 
+- (CGRect)drawingBox
+{
+    UIBezierPath *fullPath = [UIBezierPath bezierPath];
+    for (id <ENDDrawOperation> operation in self.session.operations) {
+        if ([operation isKindOfClass:[ENDDrawPathOperation class]]) {
+            ENDDrawPathOperation *pathOperation = (ENDDrawPathOperation *)operation;
+            [fullPath appendPath:pathOperation.path];
+        }
+    }
+    
+    return [self pathDrawBox:fullPath.CGPath];
+}
+
 @end
-
-
