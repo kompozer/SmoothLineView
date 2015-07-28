@@ -214,7 +214,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 
 - (void)longPressRecognized:(UILongPressGestureRecognizer *)recognizer
 {
-    if (recognizer.state == UIGestureRecognizerStateRecognized && [self.delegate respondsToSelector:@selector(smoothLineViewLongPressed:)]) {
+    if (recognizer.state == UIGestureRecognizerStateBegan && [self.delegate respondsToSelector:@selector(smoothLineViewLongPressed:)]) {
         [self.delegate smoothLineViewLongPressed:self];
     }
 }
