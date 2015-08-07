@@ -10,6 +10,10 @@
 
 
 
+@interface ENDDrawFillWithColorOperation ()
+
+@end
+
 @implementation ENDDrawFillWithColorOperation
 
 - (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
@@ -18,6 +22,11 @@
         [self.color set];
         UIRectFill(rect);
     }
+}
+
+- (CGRect)drawRect
+{
+    return self.fillRect;
 }
 
 @end
