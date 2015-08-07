@@ -138,6 +138,10 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 - (void)drawGestureRecognized:(ENDDrawGestureRecognizer *)recognizer
 {
     NSSet *touches = recognizer.touches;
+    // No support for multi touch gestures
+    if (recognizer.numberOfTouches > 1) {
+        return;
+    }
     
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         [self drawOperationBegan:touches];
