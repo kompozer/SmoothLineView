@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA78D3851B74E49500E134A7 /* ENDDrawPathOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78D3841B74E49500E134A7 /* ENDDrawPathOperationTests.m */; };
 		F5155B3D1B30CA4300F1DA58 /* SmoothLineView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5155B311B30CA4300F1DA58 /* SmoothLineView.framework */; };
-		F5155B441B30CA4300F1DA58 /* SmoothLineViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B431B30CA4300F1DA58 /* SmoothLineViewTests.m */; };
 		F5155B6C1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5155B6D1B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */; };
 		F5155B6E1B30D0FD00F1DA58 /* ENDDrawOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,10 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA78D3841B74E49500E134A7 /* ENDDrawPathOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENDDrawPathOperationTests.m; sourceTree = "<group>"; };
 		F5155B311B30CA4300F1DA58 /* SmoothLineView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmoothLineView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5155B3C1B30CA4300F1DA58 /* SmoothLineViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmoothLineViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5155B421B30CA4300F1DA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F5155B431B30CA4300F1DA58 /* SmoothLineViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmoothLineViewTests.m; sourceTree = "<group>"; };
 		F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawGestureRecognizer.h; path = Pod/Classes/ENDDrawGestureRecognizer.h; sourceTree = SOURCE_ROOT; };
 		F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENDDrawGestureRecognizer.m; path = Pod/Classes/ENDDrawGestureRecognizer.m; sourceTree = SOURCE_ROOT; };
 		F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENDDrawOperation.h; path = Pod/Classes/ENDDrawOperation.h; sourceTree = SOURCE_ROOT; };
@@ -105,13 +105,13 @@
 				F531FADB1B36DD4F002BC283 /* ENDBrush.m */,
 				F531FADC1B36DD4F002BC283 /* ENDBrushShadow.h */,
 				F531FADD1B36DD4F002BC283 /* ENDBrushShadow.m */,
+				F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */,
 				F531FADE1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.h */,
 				F531FADF1B36DD4F002BC283 /* ENDDrawFillWithColorOperation.m */,
 				F531FAE01B36DD4F002BC283 /* ENDDrawPathOperation.h */,
 				F531FAE11B36DD4F002BC283 /* ENDDrawPathOperation.m */,
 				F5155B631B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.h */,
 				F5155B641B30D0FD00F1DA58 /* ENDDrawGestureRecognizer.m */,
-				F5155B651B30D0FD00F1DA58 /* ENDDrawOperation.h */,
 				F5155B671B30D0FD00F1DA58 /* ENDDrawSession.h */,
 				F5155B681B30D0FD00F1DA58 /* ENDDrawSession.m */,
 				F5155B691B30D0FD00F1DA58 /* LVSmoothLineView.h */,
@@ -133,7 +133,7 @@
 		F5155B401B30CA4300F1DA58 /* SmoothLineViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				F5155B431B30CA4300F1DA58 /* SmoothLineViewTests.m */,
+				BA78D3841B74E49500E134A7 /* ENDDrawPathOperationTests.m */,
 				F5155B411B30CA4300F1DA58 /* Supporting Files */,
 			);
 			path = SmoothLineViewTests;
@@ -294,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5155B441B30CA4300F1DA58 /* SmoothLineViewTests.m in Sources */,
+				BA78D3851B74E49500E134A7 /* ENDDrawPathOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

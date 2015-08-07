@@ -201,12 +201,12 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
                               self.previousPoint.x, self.previousPoint.y,
                               mid2.x, mid2.y);
     
-    // compute the rect containing the new segment plus padding for drawn line
-    CGRect drawBox = [self pathDrawBox:subpath];
-    
     [self.pathOperation addSubpath:[UIBezierPath bezierPathWithCGPath:subpath]];
     
     CGPathRelease(subpath);
+    
+    // compute the rect containing the new segment plus padding for drawn line
+    CGRect drawBox = [self.pathOperation drawRect];
     
     [self setNeedsDisplayInRect:drawBox];
 }
@@ -235,7 +235,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     if (! [self canUndo]) {
         return;
     }
-        
+    
     [self.session removeLastOperation];
     [self setNeedsDisplay];
 }
@@ -268,21 +268,11 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     }
     ENDDrawFillWithColorOperation *fillOperation = [self.session beginOperation:[ENDDrawFillWithColorOperation class]];
     fillOperation.color = color;
+    fillOperation.fillRect = self.bounds;
+    
     [self.session endOperation];
     
     [self setNeedsDisplay];
-}
-
-- (CGRect)pathDrawBox:(CGPathRef)path
-{
-    if (! path) {
-        return CGRectNull;
-    }
-    
-    CGRect bounds = CGPathGetBoundingBox(path);
-    CGRect pathDrawBox = CGRectInset(bounds, -2.0 * self.pathOperation.brush.lineWidth, -2.0 * self.pathOperation.brush.lineWidth);
-    
-    return pathDrawBox;
 }
 
 @end
@@ -302,15 +292,12 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 
 - (CGRect)drawingBox
 {
-    UIBezierPath *fullPath = [UIBezierPath bezierPath];
+    CGRect finalBox = CGRectZero;
     for (id <ENDDrawOperation> operation in self.session.operations) {
-        if ([operation isKindOfClass:[ENDDrawPathOperation class]]) {
-            ENDDrawPathOperation *pathOperation = (ENDDrawPathOperation *)operation;
-            [fullPath appendPath:pathOperation.path];
-        }
+        finalBox = CGRectUnion(finalBox, [operation drawRect]);
     }
     
-    return [self pathDrawBox:fullPath.CGPath];
+    return finalBox;
 }
 
 @end

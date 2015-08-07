@@ -14,6 +14,8 @@
 
 @interface ENDDrawFillWithColorOperation : NSObject <ENDDrawOperation>
 
+@property (nonatomic, assign) CGRect fillRect;
+
 /// The fill color
 @property (nonatomic, strong) UIColor *color;
 

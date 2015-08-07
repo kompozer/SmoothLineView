@@ -12,6 +12,10 @@
 
 @protocol ENDDrawOperation <NSObject>
 
+@property (nonatomic, readonly) CGRect drawRect;
+
+/// @param context  The drawing context
+/// @param rect     The draw rect
 - (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect;
 
 @end

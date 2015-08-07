@@ -52,6 +52,23 @@
     CGContextStrokePath(context);
 }
 
+- (CGRect)pathDrawBox:(CGPathRef)path
+{
+    if (! path) {
+        return CGRectNull;
+    }
+    
+    CGRect bounds = CGPathGetBoundingBox(path);
+    CGRect pathDrawBox = CGRectInset(bounds, -2.0 * self.brush.lineWidth, -2.0 * self.brush.lineWidth);
+    
+    return pathDrawBox;
+}
+
+- (CGRect)drawRect
+{
+    return [self pathDrawBox:[self.path CGPath]];
+}
+
 - (void)addSubpath:(UIBezierPath *)subpath
 {
     if (subpath) {
