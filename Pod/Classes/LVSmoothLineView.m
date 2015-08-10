@@ -294,7 +294,11 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 {
     CGRect finalBox = CGRectZero;
     for (id <ENDDrawOperation> operation in self.session.operations) {
-        finalBox = CGRectUnion(finalBox, [operation drawRect]);
+        CGRect result = [operation drawRect];
+        if (CGRectEqualToRect(CGRectZero, finalBox)) {
+            finalBox = result;
+        }
+        finalBox = CGRectUnion(finalBox, result);
     }
     
     return finalBox;
