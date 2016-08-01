@@ -157,7 +157,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     
     ENDBrush *proposedBrush = nil;
     
-    if ([touch respondsToSelector:@selector(force)] && fabs([touch force] - 1.0f) > 0.01) {
+    if ([touch respondsToSelector:@selector(force)] && fabs([touch force] - 1.0f) > 0.01 && [touch maximumPossibleForce] != 0) {
         proposedBrush = [self.brush copy];
         proposedBrush.lineWidth = self.brush.lineWidth * ([touch force] / [touch maximumPossibleForce]) * 4.0f;
     }
