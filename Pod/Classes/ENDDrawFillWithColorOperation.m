@@ -15,6 +15,7 @@
 @end
 
 @implementation ENDDrawFillWithColorOperation
+@synthesize sequenceID;
 
 - (void)drawInContext:(CGContextRef)context inRect:(CGRect)rect
 {

@@ -34,4 +34,17 @@
     return newBrush;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[ENDBrush class]]) {
+        return NO;
+    }
+    
+    ENDBrush *other = object;
+    
+    return fabs(other.lineWidth - self.lineWidth) < 0.01 &&
+            [other.color isEqual:self.color] &&
+            [other.shadow isEqual:self.shadow];
+}
+
 @end

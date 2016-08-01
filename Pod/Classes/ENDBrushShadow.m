@@ -23,5 +23,18 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[ENDBrushShadow class]]) {
+        return NO;
+    }
+    
+    ENDBrushShadow *other = object;
+    
+    
+    return fabs(other.blur - self.blur) < 0.01 &&
+            [other.color isEqual:self.color] &&
+            CGSizeEqualToSize(other.offset, self.offset);
+}
 
 @end
