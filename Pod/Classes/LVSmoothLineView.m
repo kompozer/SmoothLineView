@@ -161,6 +161,9 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
         proposedBrush = [self.brush copy];
         proposedBrush.lineWidth = self.brush.lineWidth * ([touch force] / [touch maximumPossibleForce]) * 4.0f;
     }
+    else {
+        proposedBrush = [self.brush copy];
+    }
     
     if (self.pathOperation == nil) {
         self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class] inSequence:NO];
