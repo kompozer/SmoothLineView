@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *internalOperations;
 @property (nonatomic, strong) NSMutableArray *redoOperations;
 
-
+@property (nonatomic) NSUInteger lastSequenceID;
 @end
 
 @implementation ENDDrawSession
@@ -41,10 +41,16 @@
 
 - (id <ENDDrawOperation>)beginOperation:(Class)operationClass
 {
+    return [self beginOperation:operationClass inSequence:NO];
+}
+
+- (id <ENDDrawOperation>)beginOperation:(Class)operationClass inSequence:(BOOL)inSequence
+{
     if (! [operationClass conformsToProtocol:@protocol(ENDDrawOperation)]) {
         return nil;
     }
     self.operation = [operationClass new];
+    self.operation.sequenceID = inSequence ? self.lastSequenceID : self.lastSequenceID + 1;
     return self.operation;
 }
 
@@ -68,9 +74,20 @@
     if (self.internalOperations.count == 0) {
         return;
     }
+    
     id <ENDDrawOperation> operation = [self.internalOperations lastObject];
     [self.internalOperations removeObject:operation];
     [self.redoOperations addObject:operation];
+    
+    NSUInteger lastOperationSequenceID = operation.sequenceID;
+
+    operation = [self.internalOperations lastObject];
+
+    while(operation.sequenceID == lastOperationSequenceID) {
+        [self.internalOperations removeObject:operation];
+        [self.redoOperations addObject:operation];
+        operation = [self.internalOperations lastObject];
+    };
 }
 
 - (BOOL)canRedoLastOperation
@@ -86,12 +103,28 @@
     id <ENDDrawOperation> operation = [self.redoOperations lastObject];
     [self.internalOperations addObject:operation];
     [self.redoOperations removeObject:operation];
+    
+    NSUInteger lastOperationSequenceID = operation.sequenceID;
+    
+    operation = [self.redoOperations lastObject];
+    
+    while(operation.sequenceID == lastOperationSequenceID) {
+        [self.internalOperations addObject:operation];
+        [self.redoOperations removeObject:operation];
+        operation = [self.redoOperations lastObject];
+    };
 }
 
 - (void)removeAllOperations
 {
     [self.internalOperations removeAllObjects];
     [self.redoOperations removeAllObjects];
+}
+
+- (NSUInteger)lastSequenceID
+{
+    id <ENDDrawOperation> operation = self.internalOperations.lastObject;
+    return operation.sequenceID;
 }
 
 @end

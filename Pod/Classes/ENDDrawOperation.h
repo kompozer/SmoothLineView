@@ -12,7 +12,8 @@
 
 @protocol ENDDrawOperation <NSObject>
 
-@property (nonatomic, readonly) CGRect drawRect;
+@property (nonatomic)           NSUInteger  sequenceID;
+@property (nonatomic, readonly) CGRect      drawRect;
 
 /// @param context  The drawing context
 /// @param rect     The draw rect
