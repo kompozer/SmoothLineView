@@ -19,6 +19,7 @@
 @property (nonatomic, copy, readonly) NSArray *operations;
 
 - (id <ENDDrawOperation>)beginOperation:(Class)operationClass;
+- (id <ENDDrawOperation>)beginOperation:(Class)operationClass inSequence:(BOOL)inSequence;
 - (void)endOperation;
 
 - (BOOL)canRemoveLastOperation;

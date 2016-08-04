@@ -143,10 +143,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
         return;
     }
     
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        [self drawOperationBegan:touches];
-    }
-    else if (recognizer.state == UIGestureRecognizerStateChanged) {
+    if (recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged) {
         [self drawOperationMoved:touches];
     }
     else if (recognizer.state == UIGestureRecognizerStateEnded) {
@@ -154,24 +151,37 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     }
 }
 
-- (void)drawOperationBegan:(NSSet *)touches
-{
-    UITouch *touch = [touches anyObject];
-    
-    self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class]];
-    self.pathOperation.brush = [self.brush copy];
-    
-    // initializes our point records to current location
-    self.previousPoint = [touch previousLocationInView:self];
-    self.previousPreviousPoint = [touch previousLocationInView:self];
-    self.currentPoint = [touch locationInView:self];
-    
-    [self drawOperationMoved:touches];
-}
-
 - (void)drawOperationMoved:(NSSet *)touches
 {
     UITouch *touch = [touches anyObject];
+    
+    ENDBrush *proposedBrush = nil;
+    
+    if ([touch respondsToSelector:@selector(force)] && fabs([touch force] - 1.0f) > 0.01 && [touch maximumPossibleForce] != 0) {
+        proposedBrush = [self.brush copy];
+        proposedBrush.lineWidth = self.brush.lineWidth * ([touch force] / [touch maximumPossibleForce]) * 4.0f;
+    }
+    else {
+        proposedBrush = [self.brush copy];
+    }
+    
+    if (self.pathOperation == nil) {
+        self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class] inSequence:NO];
+        self.pathOperation.brush = proposedBrush;
+        
+        // initializes our point records to current location
+        self.previousPoint = [touch previousLocationInView:self];
+        self.previousPreviousPoint = [touch previousLocationInView:self];
+        self.currentPoint = [touch locationInView:self];
+    }
+    else {
+        if (proposedBrush != nil && ![self.brush isEqual:proposedBrush]) {
+            [self drawOperationEnded:touches];
+            
+            self.pathOperation = [self.session beginOperation:[ENDDrawPathOperation class] inSequence:YES];
+            self.pathOperation.brush = proposedBrush;
+        }
+    }
     
     CGPoint point = [touch locationInView:self];
     
@@ -214,6 +224,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
 - (void)drawOperationEnded:(NSSet *)touches
 {
     [self.session endOperation];
+    self.pathOperation = nil;
 }
 
 - (void)longPressRecognized:(UILongPressGestureRecognizer *)recognizer
@@ -266,7 +277,7 @@ static CGPoint LVMiddlePoint(CGPoint p1, CGPoint p2) {
     if (! color) {
         return;
     }
-    ENDDrawFillWithColorOperation *fillOperation = [self.session beginOperation:[ENDDrawFillWithColorOperation class]];
+    ENDDrawFillWithColorOperation *fillOperation = [self.session beginOperation:[ENDDrawFillWithColorOperation class] inSequence:NO];
     fillOperation.color = color;
     fillOperation.fillRect = self.bounds;
     
